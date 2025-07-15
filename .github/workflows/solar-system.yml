@@ -76,6 +76,8 @@ jobs:
     docker:
       permissions: 
         packages: write
+      env:
+        owner_name: ${{ github.repository_owner }}
       needs: [unit-testing, code-coverage]
       runs-on: ubuntu-latest
       steps:
@@ -94,5 +96,5 @@ jobs:
           with:
             context: .
             push: true
-            tags: ghcr.io/${{ github.repository_owner }}/solar-system:${{ github.sha }}
+            tags: ghcr.io/$owner_name/solar-system:${{ github.sha }}
       

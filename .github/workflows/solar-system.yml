@@ -91,11 +91,11 @@ jobs:
             username: ${{ github.repository_owner }}
             password: ${{ secrets.GITHUB_TOKEN }}
 
-        - name: set lower case owner name
-          run: |
-            echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
-          env:
-            OWNER: '${{ github.repository_owner }}'
+        # - name: set lower case owner name
+        #   run: |
+        #     echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+        #   env:
+        #     OWNER: '${{ github.repository_owner }}'
 
         - name: Build and push
           uses: docker/build-push-action@v6
